@@ -19,10 +19,11 @@ module SpreeGlobalize
           translated_attribute_names.each do |t|
             if n.to_s.starts_with? t.to_s
               params[:"translations_#{n}"] = params[n]
-              params.delete n
             end
           end
         end
+
+        params[:m] = 'or'
 
         super(params, options)
       end
